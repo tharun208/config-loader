@@ -37,3 +37,8 @@ test/unit: ## Dev: Run unit tests
 build/app: ## Dev: Build cmd app
 	go build -o config-loader ./app/cmd
 
+
+.PHONY: run
+run: ## Dev: Run cmd app
+	go run ./app/cmd/main.go
+

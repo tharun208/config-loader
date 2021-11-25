@@ -44,3 +44,21 @@ func main() {
 	fmt.Printf("%v\n", value)
 }
 ```
+## Running config-loader on local machine
+
+You can run config-loader locally by running:
+```bash
+make run
+```
+
+## Running config-loader on local machine using docker image
+
+Build the Image locally using:
+```bash
+docker build -t config-loader .
+```
+
+Run the image using:
+```bash
+docker run -it config-loader
+```
