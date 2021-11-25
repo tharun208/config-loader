@@ -2,21 +2,19 @@ package config
 
 import (
 	"encoding/json"
-	"io/ioutil"
 )
 
-func loadJSONFromFile(fileName string) (fileValueMap map[string]interface{}, err error) {
+// Decoder for json
+var JSONDecoder Decoder = func(data []byte) (map[string]interface{}, error) {
+	return loadJSON(data)
+}
+
+func loadJSON(fileContent []byte) (fileValueMap map[string]interface{}, err error) {
 	fileValueMap = make(map[string]interface{})
-
-	fileContent, err := ioutil.ReadFile(fileName)
-
-	if err != nil {
-		return
-	}
 
 	err = json.Unmarshal(fileContent, &fileValueMap)
 	if err != nil {
-		return fileValueMap, nil
+		return fileValueMap, err
 	}
 	return
 }

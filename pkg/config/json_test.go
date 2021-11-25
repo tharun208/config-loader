@@ -9,8 +9,15 @@ import (
 func TestShouldLoadValidJSONandReadData(t *testing.T) {
 	assert := assert.New(t)
 
-	// should not return error when the valid file is present
-	data, err := loadJSONFromFile("testdata/valid.json")
+	// should not return error when the json is invalid
+	data, err := loadJSON([]byte(`{
+		"person": {
+			"name": "user",
+			"age": 24,
+			"weight": 65.45
+		},
+		"is_available": true
+	}`))
 	assert.Nil(err)
 	assert.NotEmpty(data)
 
@@ -27,16 +34,9 @@ func TestShouldLoadValidJSONandReadData(t *testing.T) {
 	assert.Equal(true, isAvailable)
 }
 
-func TestShouldReturnErrorForNoFilePresent(t *testing.T) {
-	assert := assert.New(t)
-	data, err := loadJSONFromFile("testdata/nofile.json")
-	assert.NotNil(err)
-	assert.Empty(data)
-}
-
 func TestShouldNotReturnErrorForInvalidJSONFile(t *testing.T) {
 	assert := assert.New(t)
-	data, err := loadJSONFromFile("testdata/invalid.json")
-	assert.Nil(err)
+	data, err := loadJSON([]byte(``))
+	assert.NotNil(err)
 	assert.Empty(data)
 }
