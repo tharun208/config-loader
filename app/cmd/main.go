@@ -30,12 +30,20 @@ func processString(args string) {
 	val := strings.Split(args, " ")
 	switch val[0] {
 	case "load":
+		if len(val) <= 1 {
+			fmt.Fprintf(os.Stderr, "%v\n", "Error: please provide a file to load")
+			break
+		}
 		files := val[1:]
 		if err := initConfig.LoadFiles(files...); err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 		}
 		fmt.Fprintf(os.Stdin, "%v\n", "successfully loaded files")
 	case "get":
+		if len(val) <= 1 {
+			fmt.Fprintf(os.Stderr, "%v\n", "Error: please provide a key")
+			break
+		}
 		value := initConfig.GetConfigValueAsString(val[1])
 		fmt.Fprintf(os.Stdout, "%v\n", value)
 	case "clear":
