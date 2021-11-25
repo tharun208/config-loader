@@ -31,6 +31,9 @@ func TestLoadAndGetConfigFromKey(t *testing.T) {
 			"age":    float64(24),
 			"weight": 65.45,
 		},
+	}, {
+		given: "no_key",
+		want:  nil,
 	}}
 
 	for _, tt := range tests {

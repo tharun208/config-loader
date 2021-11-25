@@ -33,3 +33,7 @@ check: fmt vet imports ## Dev: Run code checks(go fmt, go vet, ...)
 test/unit: ## Dev: Run unit tests
 	$(GO_TEST) $(GO_TEST_OPTS) -covermode=atomic -coverpkg=./... $(PKG_LIST)
 
+.PHONY: build/app
+build/app: ## Dev: Build cmd app
+	go build -o config-loader ./app
+
