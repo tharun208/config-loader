@@ -13,7 +13,3 @@ func merge(data map[string]interface{}, dataToAdd map[string]interface{}) map[st
 	}
 	return data
 }
-
-func MergeData(data, dataToAdd map[string]interface{}) map[string]interface{} {
-	return merge(data, dataToAdd)
-}

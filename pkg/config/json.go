@@ -20,7 +20,3 @@ func loadJSONFromFile(fileName string) (fileValueMap map[string]interface{}, err
 	}
 	return
 }
-
-func LoadJSON(fileName string) (map[string]interface{}, error) {
-	return loadJSONFromFile(fileName)
-}

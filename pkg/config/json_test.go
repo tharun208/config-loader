@@ -1,9 +1,7 @@
-package config_test
+package config
 
 import (
 	"testing"
-
-	"config-loader/pkg/config"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -12,7 +10,7 @@ func TestShouldLoadValidJSONandReadData(t *testing.T) {
 	assert := assert.New(t)
 
 	// should not return error when the valid file is present
-	data, err := config.LoadJSON("testdata/valid.json")
+	data, err := loadJSONFromFile("testdata/valid.json")
 	assert.Nil(err)
 	assert.NotEmpty(data)
 
@@ -31,14 +29,14 @@ func TestShouldLoadValidJSONandReadData(t *testing.T) {
 
 func TestShouldReturnErrorForNoFilePresent(t *testing.T) {
 	assert := assert.New(t)
-	data, err := config.LoadJSON("testdata/nofile.json")
+	data, err := loadJSONFromFile("testdata/nofile.json")
 	assert.NotNil(err)
 	assert.Empty(data)
 }
 
 func TestShouldNotReturnErrorForInvalidJSONFile(t *testing.T) {
 	assert := assert.New(t)
-	data, err := config.LoadJSON("testdata/invalid.json")
+	data, err := loadJSONFromFile("testdata/invalid.json")
 	assert.Nil(err)
 	assert.Empty(data)
 }

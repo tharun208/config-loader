@@ -1,9 +1,7 @@
-package config_test
+package config
 
 import (
 	"testing"
-
-	"config-loader/pkg/config"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -30,7 +28,7 @@ func TestShouldAbletoMergeTwoDifferentObject(t *testing.T) {
 		"phone": 456,
 	}
 
-	actual := config.MergeData(data, dataToMerge)
+	actual := merge(data, dataToMerge)
 
 	assert.Equal(expected, actual)
 }
@@ -64,7 +62,7 @@ func TestShouldAbletoMergeAndUpdateValues(t *testing.T) {
 		},
 	}
 
-	actual := config.MergeData(data, dataToMergeAndUpdate)
+	actual := merge(data, dataToMergeAndUpdate)
 
 	assert.Equal(expected, actual)
 }
