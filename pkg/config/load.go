@@ -41,10 +41,7 @@ func (c *config) parseData(extension string, byteArray []byte) (err error) {
 	if decoder == nil {
 		return errors.New("no decoder present for given file format")
 	}
-	data, err := decoder(byteArray)
-	if err != nil {
-		return nil
-	}
+	data, _ := decoder(byteArray)
 
 	if len(c.data) == 0 {
 		c.data = data
