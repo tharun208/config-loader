@@ -1,4 +1,4 @@
-module config-loader
+module github.com/tharun208/config-loader
 
 go 1.16
 
