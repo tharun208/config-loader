@@ -5,6 +5,7 @@ func merge(data map[string]interface{}, dataToAdd map[string]interface{}) map[st
 		if dataVal, ok := data[key]; ok {
 			dataMap, ok := dataVal.(map[string]interface{})
 			dataToAddMap, ok2 := val.(map[string]interface{})
+			// if both are again nested objects, recursively call merge
 			if ok && ok2 {
 				data[key] = merge(dataMap, dataToAddMap)
 			}
