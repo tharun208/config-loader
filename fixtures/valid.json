@@ -1,0 +1,15 @@
+{
+    "environment": "production",
+    "database": {
+      "host": "mysql",
+      "port": 3306,
+      "username": "test",
+      "password": "test"
+    },
+    "cache": {
+      "redis": {
+        "host": "redis",
+        "port": 6379
+      }
+    }
+  }
