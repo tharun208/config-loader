@@ -22,11 +22,11 @@ func main() {
 
 	// GetValue method returns pretty version of return value
 
-	val := config.GetValue("cache")
+	val := config.GetConfigValueAsString("cache")
 
 	fmt.Printf("%v\n", val)
 
-	val = config.GetValue("environment")
+	val = config.GetConfigValueAsString("environment")
 
 	fmt.Printf("%v\n", val)
 

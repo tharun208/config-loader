@@ -19,14 +19,16 @@ func NewConfig() *config {
 	}
 }
 
-// GetConfigValue returns the value for the given key.
+// GetConfigValueAsString returns the string represented value for the given key.
 // The key can be a dot seperate path of nested config.
-func (c *config) GetValue(key string) string {
+func (c *config) GetConfigValueAsString(key string) string {
 	value := c.GetConfigValue(key)
 	b, _ := json.MarshalIndent(value, "", "  ")
 	return string(b)
 }
 
+// GetConfigValue returns the value for the given key.
+// The key can be a dot seperate path of nested config.
 func (c *config) GetConfigValue(key string) interface{} {
 	return getValueFromKey(c.data, key)
 }
