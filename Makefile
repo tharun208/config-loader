@@ -35,5 +35,5 @@ test/unit: ## Dev: Run unit tests
 
 .PHONY: build/app
 build/app: ## Dev: Build cmd app
-	go build -o config-loader ./app
+	go build -o config-loader ./app/cmd
 
