@@ -14,7 +14,7 @@ func main() {
 	// Load configuration files
 
 	err := config.LoadFiles("fixtures/valid.json")
-	// config.LoadFiles("fixtures/valid.json", "testdata/valid_local.json")
+	// config.LoadFiles("fixtures/valid.json", "fixtures/valid.local.json")
 
 	if err != nil {
 		panic(err)

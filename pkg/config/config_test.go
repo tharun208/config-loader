@@ -12,7 +12,7 @@ func TestLoadAndGetConfigFromKey(t *testing.T) {
 	config := NewConfig()
 
 	// Should able to load multiple files
-	err := config.LoadFiles("testdata/valid.json", "testdata/other.json")
+	err := config.LoadFiles("testdata/valid.json", "testdata/other.json", "testdata/invalid.json")
 	assert.Nil(err)
 
 	tests := []struct {
